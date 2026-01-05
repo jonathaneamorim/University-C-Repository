@@ -1,0 +1,133 @@
+- Eficiencia
+Fila, pilha e lista
+
+
+gcc GNU compiler collection
+
+gcc -help
+
+tabela de dispersão - (dictionary)
+
+Arvore e hash
+
+livros Cormen(mais importante) <- usado bastante
+Livro renata - também é bom
+
+
+Utilizando o GCC 
+gcc (filename) - COMPILAR
+./filename.out - EXECUTAR
+
+
+Declarar ponteiro
+<tipo de dado do ponteiro> * <nome do ponteiro>; (esse cara vai apontar pra um endereço de memória)
+	int
+	float
+	bool
+	char
+	
+Ponteiro é um tipo de dado que aponta para um endereço de memória
+
+Pq dizer que tipo de dado é o ponteiro? Dizer pro ponteiro que tipo de dado ele aponta na memoria (bytes). Isso garante que a quantidade de espaços da memória modificado será apenas o indicado. (REVER)
+
+Trazer o endereco de uma variável (utilizar o &) ex:
+	printf("%f", &variavel); (trará apenas a primeira posição da variável, mesmo se ela ocupar mais espaços) ex: float, int etc
+	
+Ponteiros podem apontar pra ponteiros
+Ponteiros sempre ocupam 4 bytes. (todas as posições de memórias que possam haver) (PESQUISAR)
+
+operações com ponteiros
+1. = - Atribuição  
+	int * variavel;
+	variavel = 0xF001;
+2. * - Exibir o conteudo de onde o ponteiro está apontando
+	float valor = 4.3
+	float * meu_ponteiro;
+	meu_ponteiro = $valor;
+	printf("%f", meu_ponteiro); (saida: 0xF001) 
+	printf("%f", &meu_ponteiro); (saida: 0xF007)
+	printf("%f", *meu_ponteiro); (saida: 4.3)	
+	
+	alterar conteudo do valor onde o ponteiro ta apontando * (REVER)
+	
+3. -> - Simplificou o formato de ficar apontando pro conteudo do ponteiro (removeu a necessidade dos parenteses)
+	Foi disso: 
+	struct TData{
+		int ano;
+		int mes;
+		int dia;
+	};
+	int main(){
+		TData aniv1;
+		TData
+		aniv2;
+		TData * p;
+		p = &aniv1;
+		(*p).mes = 12;  (AQUI. Se não usar parênteses vai dar erro)
+		p = &aniv2;
+		(*p).mes = 11;
+		return 0;
+	}
+	
+	pra isso: 
+	struct TData{
+		int ano;
+		int
+		mes;
+		int dia;
+	};
+	int main(){
+		TData aniv1;
+		TData
+		aniv2;
+		TData * p;
+		p = &aniv1;
+		p->mes = 12;
+		p = &aniv2;
+		p->mes = 11;
+		return 0;
+	}
+
+
+Struct "tipo" de dado novo composto por dados menores.
+quando tiver trabalhando com struct e criar um ponteiro apontando pra struct, o ponteiro vai apontar somente pro primeiro endereco do ponteiro
+
+Alocação dinâmica
+Limpar valor de ponteiros, passa a nao ter endereços armazenados (NULL é 0) 
+	ponteiro = NULL
+Apagar ponteiro
+	free(ponteiro); Libere a regiao de memoria que o ponteiro está apontando (libera para outros programas utilizarem). (Não apaga o valor do ponteiro)
+
+typedata * ponteiro = malloc(sizeof(typedata)); (SABER OBRIGATORIAMENTE)
+o que menos vai usar é o *.
+
+Diferença de criar um ponteiro e alocar memória: 
+	Se precisar utilizar o valor fora da função aloca memória, se não precisar só cria o ponteiro mesmo.
+	
+O endereçamento do computador vai de cima pra baixo, ou seja, o primeiro valor recebe um endereço meior do que p segundo número declarado
+
+um vetor meio é que um ponteiro
+Passar valor pra uma função por parâmetro ou referência (valor em si ou ponteiro)
+
+
+AULA 2
+Recursividade
+Exercicio de Fibonnati
+merge sort e quick sort - recursoes
+
+Quando usar qual?
+	- recursão (código mais limpo e simples) - Usa mais memória - Arvores
+	- For - Mais rápido de fazer porém menos legível
+	
+inverter
+pra inverter eu preciso manipular as posições do vetor
+ex: primeira posição recebe o valor da ultima e a ultima posição recebe o valor da primeira
+precisaria ter 2 numeros controlando essa troca, no fim se um numero for igual a outro ele só atribui o valor que já estava
+
+
+AULA 3
+TAD (Tipo abstrato de dados) -> Struct ou classe
+Tipos primitivos -> int, char, float etc
+Tipos de dados estruturados
+TAD encadeada
+typedef - definindo

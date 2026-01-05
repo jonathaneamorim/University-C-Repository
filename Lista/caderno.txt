@@ -1,0 +1,5 @@
+Na lista o inserir padrão é inserir no fim da lista
+Valor e ponteiro pro próximo
+Criar, destruir e tamanho só pegar dos outros
+
+
